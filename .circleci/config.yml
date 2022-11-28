@@ -1,15 +1,16 @@
 version: 2.1
-orbs:
-  node: circleci/node@5.0.3
 jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:18.11.0
+      - image: circleci/node:8
     steps:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: node
+          command: nvm install node
       - run:
           name: Install Dependencies
           command: yarn install
