@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: cimg/node:12.16
+      - image: cimg/node:16.13.2
     steps:
       - checkout
       - run:
@@ -20,9 +20,6 @@ jobs:
             echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
-      - run:
-          name: node
-          command: nvm install node
       - run:
           name: Install Dependencies
           command: yarn install
