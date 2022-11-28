@@ -6,7 +6,7 @@ export type Props = {
   baseEnthusiasmLevel?: number;
 };
 
-const Hello: React.FC<Props> = ({
+const App: React.FC<Props> = ({
   name,
   baseEnthusiasmLevel = 0
 }) => {
@@ -26,21 +26,16 @@ const Hello: React.FC<Props> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.greeting}>
-        Hello {name}
-        {getExclamationMarks(enthusiasmLevel)}
-      </Text>
+      <Text style={styles.greeting} testID="name-printed">Hello</Text>
       <View>
         <Button
           title="Increase enthusiasm"
           accessibilityLabel="increment"
-          onPress={onIncrement}
           color="blue"
         />
         <Button
           title="Decrease enthusiasm"
           accessibilityLabel="decrement"
-          onPress={onDecrement}
           color="red"
         />
       </View>
@@ -62,4 +57,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Hello;
+export default App;
