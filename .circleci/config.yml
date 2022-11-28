@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node@18.11.0
+  node: circleci/node@18.11
 jobs:
   build:
     working_directory: ~/repo
@@ -8,14 +8,15 @@ jobs:
       - image: circleci/node:10.16.3
     steps:
       - checkout
+      - run:
+          name: Update NPM
+          command: "sudo npm install -g npm@5"
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
-      - restore_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
       - run:
           name: Install Dependencies
           command: yarn install
-      - save_cache: 
+      - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
