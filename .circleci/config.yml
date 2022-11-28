@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  node: circleci/node@5.0.3
 jobs:
   build:
     working_directory: ~/repo
@@ -6,6 +8,9 @@ jobs:
       - image: circleci/node:18.11.0
     steps:
       - checkout
+      - run:
+          name: node version
+          command: "node -v"
       - run:
           name: Update NPM
           command: "sudo npm install -g npm@5"
