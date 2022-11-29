@@ -1,17 +1,14 @@
-import "react-native";
-import React from "react";
-import App from "../App";
+/**
+ * @format
+ */
 
-import { fireEvent, render, waitFor } from "@testing-library/react-native";
+ import 'react-native';
+ import React from 'react';
+ import Login from 'container/Login';
+ 
+import renderer from 'react-test-renderer';
 
-it("Renders Message", async () => {
-  const { getByTestId, getByText, queryByTestId, toJSON } = render(<App name="Belgin" />);
 
-  const button = getByText("Increase enthusiasm");
-  fireEvent.press(button);
-
-  await waitFor(() => expect(queryByTestId("name-printed")).toBeTruthy());
-
-  expect(getByTestId("name-printed").props.children).toBe("Hello");
-  expect(toJSON()).toMatchSnapshot();
+ it('renders correctly', () => {
+  renderer.create(<Login name={""} />);
 });
