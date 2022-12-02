@@ -1,14 +1,7 @@
-/**
- * @format
- */
+import 'react-native';
+import React from 'react';
+import sum from 'container/Login/helper';
 
- import 'react-native';
- import React from 'react';
- import Login from 'container/Login';
- 
-import renderer from 'react-test-renderer';
-
-
- it('renders correctly', () => {
-  renderer.create(<Login name={""} />);
+test('adds properly', () => {
+  expect(sum(10, 20)).toBe(30);
 });
