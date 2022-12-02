@@ -1,26 +1,30 @@
-import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React, { memo } from 'react';
+import { Button, Pressable, StyleSheet, Text, View } from 'react-native';
 
-export type Props = {
-  name: string;
-  baseEnthusiasmLevel?: number;
-};
+import { useSelector, useDispatch } from 'react-redux';
+import createActions from 'redux/createActions';
 
-const Login: React.FC<Props> = ({
-  name,
-  baseEnthusiasmLevel = 0
-}) => {
-  const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(
-    baseEnthusiasmLevel
-  );
+interface LoginProps { }
+
+const Login = memo((props: LoginProps) => {
+
+  const dispatch = useDispatch();
+
+  const handleIncrement = () => {
+    console.log(count)
+    dispatch(createActions("NAME", { "name": "testing" }));
+  };
+
+  const count = useSelector((state: any) => state.writeData);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.greeting} testID="name-printed">Hello</Text>
-      <View>
-      </View>
+      <Pressable onPress={handleIncrement}>
+        <Text style={styles.greeting} testID="name-printed">Hello</Text>
+      </Pressable>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -30,7 +34,7 @@ const styles = StyleSheet.create({
   },
   greeting: {
     fontSize: 20,
-    padding: 10 ,
+    padding: 10,
     fontWeight: 'bold',
     margin: 20
   }
