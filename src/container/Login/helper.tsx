@@ -1,6 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export default function sum(a : number , b : number){
-      return a + b
+export default function sum(a: number, b: number) {
+  return a + b;
 }
-

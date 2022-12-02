@@ -1,8 +1,8 @@
-import { combineReducers, createStore } from "redux";
-import writeData from "./writeData";
+import {combineReducers, createStore} from 'redux';
+import writeData from './writeData';
 
 const rootReducer = combineReducers({
-  writeData
+  writeData,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

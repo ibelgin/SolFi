@@ -1,7 +1,7 @@
-import { User } from "./actionTypes";
+import {User} from './actionTypes';
 
 const initValue = {
-  name: "",
+  name: '',
 };
 
 const writeData = (state = initValue, action: any) => {
