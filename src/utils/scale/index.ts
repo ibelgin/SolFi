@@ -1,4 +1,4 @@
-import { Constants } from "configs";
+import {Constants} from 'configs';
 const widthDesign = 375;
 const heightDesign = 812;
 const scale = (size: number, accordingHeight?: boolean) => {

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from 'configs';
-import scale from '../utils/scale';
+// import {Colors} from 'configs';
+// import scale from '../utils/scale';
 
 export default StyleSheet.create({
   flexRowSpace: {

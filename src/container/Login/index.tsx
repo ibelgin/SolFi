@@ -1,12 +1,12 @@
 import React, {memo} from 'react';
-import {Button, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
 import createActions from 'redux/createActions';
 
 interface LoginProps {}
 
-const Login = memo((props: LoginProps) => {
+const Login = memo((_props: LoginProps) => {
   const dispatch = useDispatch();
 
   const handleIncrement = () => {

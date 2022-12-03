@@ -1,9 +1,8 @@
 //Actions
 
 const createActions = (type: string, data: any) => ({
-    type,
-    ...data,
-  });
+  type,
+  ...data,
+});
 
-  export default createActions;
-  
+export default createActions;
