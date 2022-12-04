@@ -28,8 +28,8 @@
       "@container/*": [
         "src/container/*"
       ],
-      "@elements/*": [
-        "src/elements/*"
+      "@layout/*": [
+        "src/layout/*"
       ],
       "@configs/*": [
         "src/configs/*"
