@@ -1,5 +1,4 @@
 import 'react-native';
-import React from 'react';
 import sum from 'container/Login/helper';
 
 test('adds properly', () => {

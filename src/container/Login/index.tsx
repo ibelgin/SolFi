@@ -1,44 +1,19 @@
 import React, {memo} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
-
-import {useSelector, useDispatch} from 'react-redux';
-import createActions from 'redux/createActions';
+import {StyleSheet, View} from 'react-native';
+import Container from 'layout/Container';
 
 interface LoginProps {}
 
 const Login = memo((_props: LoginProps) => {
-  const dispatch = useDispatch();
-
-  const handleIncrement = () => {
-    console.log(count);
-    dispatch(createActions('NAME', {name: 'testing'}));
-  };
-
-  const count = useSelector((state: any) => state.writeData);
-
   return (
-    <View style={styles.container}>
-      <Pressable onPress={handleIncrement}>
-        <Text style={styles.greeting} testID="name-printed">
-          Hello
-        </Text>
-      </Pressable>
-    </View>
+    <Container>
+      <View style={styles.illustration_view} />
+    </Container>
   );
 });
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  greeting: {
-    fontSize: 20,
-    padding: 10,
-    fontWeight: 'bold',
-    margin: 20,
-  },
+  illustration_view: {},
 });
 
 export default Login;
