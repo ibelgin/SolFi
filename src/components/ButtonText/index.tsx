@@ -10,6 +10,7 @@ import {
 
 import {Colors} from 'configs';
 import Theme from 'style/Theme';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 interface ButtonTextProps {
   title?: string;
@@ -19,6 +20,7 @@ interface ButtonTextProps {
   onPress?: () => void;
   borderColor?: ColorValue | string;
   backgroundColor?: ColorValue | string;
+  iconName: string;
 }
 
 const ButtonText = memo(
@@ -28,17 +30,21 @@ const ButtonText = memo(
     style,
     titleColor = Colors.White,
     onPress,
-    ...textProps
+    iconName,
   }: ButtonTextProps) => {
     return (
-      <TouchableOpacity
-        style={[styles.container, {backgroundColor: backgroundColor, ...style}]}
-        onPress={onPress}
-        activeOpacity={0.54}>
-        <Text style={{color: titleColor}} {...textProps}>
-          {title}
-        </Text>
-      </TouchableOpacity>
+      <>
+        <TouchableOpacity
+          style={[
+            styles.container,
+            {backgroundColor: backgroundColor, ...style},
+          ]}
+          onPress={onPress}
+          activeOpacity={0.54}>
+          <AntDesign name={iconName} size={24} color={titleColor} />
+          <Text style={[styles.text, {color: titleColor}]}>{title}</Text>
+        </TouchableOpacity>
+      </>
     );
   },
 );
@@ -47,9 +53,15 @@ export default ButtonText;
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
+    margin: 20,
     height: 70,
-    borderRadius: 12,
+    borderRadius: 10,
+    ...Theme.flexDirection,
     ...Theme.center,
+  },
+  text: {
+    fontWeight: '500',
+    fontSize: 17,
+    marginLeft: 20,
   },
 });
