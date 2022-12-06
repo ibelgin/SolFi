@@ -9,7 +9,11 @@ const Login = memo((_props: LoginProps) => {
   return (
     <Container>
       <View style={styles.illustration_view} />
-      <ButtonText title="Login" />
+      <ButtonText
+        onPress={() => console.log('Testing')}
+        iconName="google"
+        title="Sign In With Google"
+      />
     </Container>
   );
 });
