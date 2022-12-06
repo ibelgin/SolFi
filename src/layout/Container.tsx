@@ -5,17 +5,22 @@ import {
   ViewStyle,
   ScrollView,
   PressableStateCallbackType,
+  StatusBar,
 } from 'react-native';
+
+import {Colors} from 'configs';
 
 interface Props extends ViewProps {
   children?:
     | React.ReactNode
-    | ((state: PressableStateCallbackType) => React.ReactNode);
+    | ((state: PressableStateCallbackType) => React.ReactNode)
+    | any;
   style?: ViewStyle;
 }
 
 const Container = (props: Props) => (
-  <DefaultView style={[{flex: 1}, props.style]}>
+  <DefaultView style={[{flex: 1, backgroundColor: Colors.White}, props.style]}>
+    <StatusBar barStyle="dark-content" backgroundColor={Colors.White} />
     <ScrollView>{props.children}</ScrollView>
   </DefaultView>
 );
