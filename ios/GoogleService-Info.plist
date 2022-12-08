@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>814353624-r74rqivotf5if377lnjps048ar32h5hu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.814353624-r74rqivotf5if377lnjps048ar32h5hu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>814353624-h7jsv3bh1j9f0bu16oha3fk6j83odetg.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDnrBqa5YMnARoTc0jO9pUvly_45AIeVK4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>814353624</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.solfi</string>
+	<key>PROJECT_ID</key>
+	<string>sol-fi</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sol-fi.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:814353624:ios:40ee386e1f0ac60db39bad</string>
+</dict>
+</plist>
