@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "814353624",
+    "project_id": "sol-fi",
+    "storage_bucket": "sol-fi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814353624:android:e2f21860c787e4c8b39bad",
+        "android_client_info": {
+          "package_name": "com.solfi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814353624-h7jsv3bh1j9f0bu16oha3fk6j83odetg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.solfi",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "814353624-k4p5fap1k7qigafu11is2c3rja3tlba6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.solfi",
+            "certificate_hash": "9b1264b38f8c0f48c0aebc93b1b50e02db2f9706"
+          }
+        },
+        {
+          "client_id": "814353624-mg95dg09c3bsumchgk58d87k09s28aag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.solfi",
+            "certificate_hash": "254c07f70016f68f53d1a0eb8d9a440d67b3a3dc"
+          }
+        },
+        {
+          "client_id": "814353624-crntv6f6kftsg60tgr9pj9cs372ib0g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeYRK_MPhgNSGo819USXtXQ49a8amDlnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814353624-crntv6f6kftsg60tgr9pj9cs372ib0g2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "814353624-r74rqivotf5if377lnjps048ar32h5hu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.solfi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
