@@ -506,8 +506,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8WMG9KRPU4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SolFi/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SolFi;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,7 +534,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8WMG9KRPU4;
 				INFOPLIST_FILE = SolFi/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SolFi;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

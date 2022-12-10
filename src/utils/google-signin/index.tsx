@@ -31,4 +31,8 @@ async function signIn() {
   }
 }
 
-export {initialConfig, signIn};
+function onSignIn(val: any) {
+  console.log(val);
+}
+
+export {initialConfig, signIn, onSignIn};
