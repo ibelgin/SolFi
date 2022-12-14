@@ -4,7 +4,7 @@ import Container from 'layout/Container';
 import ButtonText from 'components/ButtonText';
 import {Colors, Constants} from 'configs';
 import Strings from './messages.en';
-import {initialConfig, signIn, onSignIn} from 'utils/google-signin';
+import {initialConfig, checkIfSignedIn, signIn} from 'utils/google-signin';
 import Text from 'components/Text';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -17,13 +17,17 @@ const Login = memo((_props: LoginProps) => {
 
   useEffect(() => {
     initialConfig();
-    animationRef.current?.play(30, 120);
+    checkIfSignedIn();
   });
 
   return (
     <Container style={styles.container}>
       <View style={styles.illustration_view}>
-        <Lottie ref={animationRef} source={require('assets/floating.json')} />
+        <Lottie
+          ref={animationRef}
+          loop={true}
+          source={require('assets/floating.json')}
+        />
       </View>
       <Text paddingTop={90} paddingHorizontal={20} heading>
         {Strings.WELCOME}
@@ -32,7 +36,7 @@ const Login = memo((_props: LoginProps) => {
         {Strings.DESC}
       </Text>
       <ButtonText
-        onPress={() => signIn().then(onSignIn)}
+        onPress={() => signIn()}
         icon={
           <AntDesign name={Strings.ICON_NAME} size={24} color={Colors.White} />
         }
