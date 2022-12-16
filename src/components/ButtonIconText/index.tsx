@@ -11,7 +11,7 @@ import {
 import {Colors} from 'configs';
 import Theme from 'style/Theme';
 
-interface ButtonTextProps {
+interface ButtonIconTextProps {
   title?: string;
   style?: ViewStyle;
   titleColor?: string;
@@ -22,7 +22,7 @@ interface ButtonTextProps {
   icon: any;
 }
 
-const ButtonText = memo(
+const ButtonIconText = memo(
   ({
     backgroundColor = Colors.Primary,
     title,
@@ -30,7 +30,7 @@ const ButtonText = memo(
     titleColor = Colors.White,
     onPress,
     icon,
-  }: ButtonTextProps) => (
+  }: ButtonIconTextProps) => (
     <>
       <TouchableOpacity
         style={[styles.container, {backgroundColor: backgroundColor, ...style}]}
@@ -43,7 +43,7 @@ const ButtonText = memo(
   ),
 );
 
-export default ButtonText;
+export default ButtonIconText;
 
 const styles = StyleSheet.create({
   container: {
