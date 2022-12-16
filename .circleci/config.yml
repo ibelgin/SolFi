@@ -1,27 +1,12 @@
+# .circleci/config.yml
 version: 2.1
+orbs:
+  android: circleci/android@1.0
 jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: cimg/node:16.13.2
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install
-      - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Run tests
-          command: npm test -- -u
-  release-build:
+  test:
     executor:
       name: android/android-machine
-      resource-class: xlarge
+      resource-class: large
     steps:
       - checkout
       - android/restore-gradle-cache
@@ -32,3 +17,7 @@ jobs:
             ./gradlew assembleRelease
       - store_artifacts:
           path: app/build/outputs/apk/release
+workflows:
+  test:
+    jobs:
+      - test
