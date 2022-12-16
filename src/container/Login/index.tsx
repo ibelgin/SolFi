@@ -17,8 +17,8 @@ const Login = memo((_props: LoginProps) => {
   const animationRef = useRef<Lottie>(null);
 
   useEffect(() => {
-    // initialConfig();
-    // checkIfSignedIn();
+    initialConfig();
+    checkIfSignedIn();
   });
 
   return (
