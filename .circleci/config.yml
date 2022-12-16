@@ -15,7 +15,6 @@ jobs:
       - run:
           name: Assemble release build
           command: |
-            npm install
             cd android
             ./gradlew assembleRelease
       - store_artifacts:
