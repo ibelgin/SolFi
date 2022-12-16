@@ -2,6 +2,9 @@
 version: 2.1
 orbs:
   android: circleci/android@1.0
+
+working_directory: ~/project
+
 jobs:
   test:
     executor:
