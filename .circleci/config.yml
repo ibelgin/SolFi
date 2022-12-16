@@ -16,7 +16,7 @@ jobs:
           name: Assemble release build
           command: |
             npm install -g yarn
-            yarn install
+            yarn install --ignore-engines
             cd android
             ./gradlew assembleRelease
       - store_artifacts:
