@@ -1,7 +1,7 @@
 import React, {memo, useEffect, useRef} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Container from 'layout/Container';
-import ButtonText from 'components/ButtonText';
+import ButtonIconText from 'components/ButtonIconText';
 import {Colors, Constants} from 'configs';
 import Strings from './messages.en';
 import {initialConfig, checkIfSignedIn, signIn} from 'utils/google-signin';
@@ -9,6 +9,7 @@ import Text from 'components/Text';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Lottie from 'lottie-react-native';
+import ButtonBorder from 'components/ButtonBorder';
 
 interface LoginProps {}
 
@@ -16,8 +17,8 @@ const Login = memo((_props: LoginProps) => {
   const animationRef = useRef<Lottie>(null);
 
   useEffect(() => {
-    initialConfig();
-    checkIfSignedIn();
+    // initialConfig();
+    // checkIfSignedIn();
   });
 
   return (
@@ -35,13 +36,14 @@ const Login = memo((_props: LoginProps) => {
       <Text padding={20} description>
         {Strings.DESC}
       </Text>
-      <ButtonText
+      <ButtonIconText
         onPress={() => signIn()}
         icon={
           <AntDesign name={Strings.ICON_NAME} size={24} color={Colors.White} />
         }
         title={Strings.SIGN_IN}
       />
+      <ButtonBorder title={'Submit the Code'} />
     </Container>
   );
 });
