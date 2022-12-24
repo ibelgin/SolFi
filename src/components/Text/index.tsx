@@ -51,6 +51,7 @@ export default ({
   return (
     <Text
       {...props}
+      adjustsFontSizeToFit={true}
       style={[
         {
           color: color,
