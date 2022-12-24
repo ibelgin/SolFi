@@ -5,8 +5,6 @@ import {Colors} from 'configs';
 import Theme from 'style/Theme';
 
 import Text from 'components/Text';
-
-import Icon from 'react-native-vector-icons/AntDesign';
 interface TitleTextButtonProps {
   title?: string;
   buttonText?: string;
