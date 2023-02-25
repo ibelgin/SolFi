@@ -1,7 +1,6 @@
 import React, {memo} from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-import {Colors} from 'configs';
 import Theme from 'style/Theme';
 
 import Text from 'components/Text';
