@@ -16,5 +16,5 @@ module.exports = {
   },
   resolver: {
     sourceExts: ['jsx', 'js', 'ts', 'tsx', 'cjs', 'hcsript', 'json', 'node'],
-  }
+  },
 };
