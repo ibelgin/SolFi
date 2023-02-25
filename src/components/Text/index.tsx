@@ -41,7 +41,7 @@ export default ({
   if (heading) {
     color = Colors.DarkGreen;
     fontWeight = '600';
-    size = 25;
+    size = 23;
   }
   if (description) {
     color = Colors.LightGreen;

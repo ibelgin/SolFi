@@ -9,7 +9,6 @@ import Text from 'components/Text';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Lottie from 'lottie-react-native';
-import TitleTextButton from 'components/TitleTextButton';
 
 interface LoginProps {}
 
@@ -43,7 +42,6 @@ const Login = memo((_props: LoginProps) => {
         }
         title={Strings.SIGN_IN}
       />
-      <TitleTextButton title={'This is a Heading'} buttonText={'Random File'} />
     </Container>
   );
 });
