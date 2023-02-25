@@ -39,11 +39,10 @@ const styles = StyleSheet.create({
     color: Colors.Black,
   },
   title_view: {
-    width: '50%',
+    width: '70%',
   },
   button_style: {
-    width: '50%',
-    padding: 10,
+    width: '30%',
     ...Theme.flexDirection,
     ...Theme.center,
   },
