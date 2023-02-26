@@ -18,7 +18,7 @@ const AddSensor = memo((_props: AddSensorProps) => {
       <Text description style={styles.instructiontext}>
         Check the backside of the Device for the Serial Number
       </Text>
-      <TitleInput title="Email" placeholder="test@test.com" />
+      <TitleInput title="Serial Number" placeholder="78GHSD-KSU80-HKSB82" />
     </Container>
   );
 });

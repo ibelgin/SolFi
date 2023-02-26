@@ -9,6 +9,7 @@ import Text from 'components/Text';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Lottie from 'lottie-react-native';
+import {Assets} from 'assets';
 
 interface LoginProps {}
 
@@ -17,17 +18,13 @@ const Login = memo((_props: LoginProps) => {
 
   useEffect(() => {
     initialConfig();
-    checkIfSignedIn();
-  });
+    animationRef.current?.play();
+  }, []);
 
   return (
     <Container style={styles.container}>
       <View style={styles.illustration_view}>
-        <Lottie
-          ref={animationRef}
-          loop={true}
-          source={require('assets/floating.json')}
-        />
+        <Lottie loop={true} autoPlay source={Assets.floatingJson} />
       </View>
       <Text paddingTop={90} paddingHorizontal={20} heading>
         {Strings.WELCOME}
