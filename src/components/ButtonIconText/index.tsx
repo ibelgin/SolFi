@@ -25,6 +25,7 @@ interface ButtonIconTextProps {
 const ButtonIconText = memo(
   ({
     backgroundColor = Colors.Primary,
+    borderColor = Colors.BorderGreen,
     title,
     style,
     titleColor = Colors.White,
@@ -33,7 +34,14 @@ const ButtonIconText = memo(
   }: ButtonIconTextProps) => (
     <>
       <TouchableOpacity
-        style={[styles.container, {backgroundColor: backgroundColor, ...style}]}
+        style={[
+          styles.container,
+          {
+            borderColor: borderColor,
+            backgroundColor: backgroundColor,
+            ...style,
+          },
+        ]}
         onPress={onPress}
         activeOpacity={0.54}>
         {icon}
@@ -50,6 +58,7 @@ const styles = StyleSheet.create({
     margin: 20,
     height: 60,
     borderRadius: 10,
+    borderWidth: 4,
     ...Theme.flexDirection,
     ...Theme.center,
   },

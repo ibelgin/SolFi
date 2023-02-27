@@ -6,7 +6,6 @@ import {Colors, Constants} from 'configs';
 import Strings from './messages.en';
 import {initialConfig, checkIfSignedIn, signIn} from 'utils/google-signin';
 import Text from 'components/Text';
-
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Lottie from 'lottie-react-native';
 import {Assets} from 'assets';
@@ -18,13 +17,19 @@ const Login = memo((_props: LoginProps) => {
 
   useEffect(() => {
     initialConfig();
-    animationRef.current?.play();
+    // checkIfSignedIn();
+    animationRef.current?.play(130, 350);
   }, []);
 
   return (
     <Container style={styles.container}>
       <View style={styles.illustration_view}>
-        <Lottie loop={true} autoPlay source={Assets.floatingJson} />
+        <Lottie
+          ref={animationRef}
+          loop={true}
+          autoPlay
+          source={Assets.floatingJson}
+        />
       </View>
       <Text paddingTop={90} paddingHorizontal={20} heading>
         {Strings.WELCOME}
