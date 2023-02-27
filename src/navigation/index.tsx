@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 
 const RootStack = memo(() => {
   return (
-    <Stack.Navigator initialRouteName={Routes.Login}>
+    <Stack.Navigator initialRouteName={Routes.AddSensor}>
       <Stack.Screen
         name={Routes.Login}
         component={Login}

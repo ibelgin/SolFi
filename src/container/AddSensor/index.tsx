@@ -8,7 +8,6 @@ import TitleInput from 'components/TitleInput';
 import {IMAGE} from 'images';
 import ButtonIconText from 'components/ButtonIconText';
 import {Constants} from 'configs';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 
 interface AddSensorProps {}
 
@@ -23,7 +22,7 @@ const AddSensor = memo((_props: AddSensorProps) => {
         Check the backside of the Device for the Serial Number
       </Text>
       <Image
-        source={require('../../images/serialprototype.png')}
+        source={IMAGE.serialprotoype}
         style={styles.image}
         resizeMode="contain"
       />
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
   tempview: {},
   instructiontext: {
     paddingHorizontal: 20,
-    fontSize: 15,
+    fontSize: 18,
     lineHeight: 20,
   },
   image: {
