@@ -8,6 +8,7 @@ import TitleInput from 'components/TitleInput';
 import {IMAGE} from 'images';
 import ButtonIconText from 'components/ButtonIconText';
 import {Constants} from 'configs';
+import Strings from './messages.en';
 
 interface AddSensorProps {}
 
@@ -17,9 +18,9 @@ const AddSensor = memo((_props: AddSensorProps) => {
   return (
     <Container>
       <View style={styles.tempview} />
-      <Header title="Add Sensor" navigation={navigate} />
+      <Header title={Strings.TITLE} navigation={navigate} />
       <Text description style={styles.instructiontext}>
-        Check the backside of the Device for the Serial Number
+        {Strings.DESC}
       </Text>
       <Image
         source={IMAGE.serialprotoype}
@@ -27,11 +28,11 @@ const AddSensor = memo((_props: AddSensorProps) => {
         resizeMode="contain"
       />
       <TitleInput
-        title="Serial Number"
-        placeholder="78GHSD-KSU80-HKSB82"
+        title={Strings.SERIAL}
+        placeholder={Strings.ID}
         style={styles.sensorinput}
       />
-      <ButtonIconText title={'Add Sensor'} />
+      <ButtonIconText title={Strings.TITLE} />
     </Container>
   );
 });
