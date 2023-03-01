@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: '500',
     fontSize: 17,
-    color: Colors.LightGreen,
+    color: Colors.Primary,
   },
 });

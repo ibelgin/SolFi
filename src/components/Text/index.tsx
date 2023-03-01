@@ -44,8 +44,8 @@ export default ({
     size = 23;
   }
   if (description) {
-    color = Colors.LightGreen;
-    fontWeight = '400';
+    color = Colors.Primary;
+    fontWeight = '500';
     size = 15;
   }
   return (
