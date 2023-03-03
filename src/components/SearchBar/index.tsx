@@ -13,7 +13,7 @@ interface SearchBarProps {
 
 const SearchBar = memo(({value, onChange, placeholder}: SearchBarProps) => (
   <View style={styles.textInputFocus}>
-    {<EvilIcons name="search" size={20} />}
+    <EvilIcons name="search" size={20} />
     <TextInput
       value={value}
       placeholder={placeholder}
