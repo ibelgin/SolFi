@@ -6,6 +6,7 @@ const Colors = {
   Primary: '#15B8A7',
   LightDarkGreen: '#568E77',
   HeaderGreen: '#0E7469',
+  DodgerBlue: '#1DA1F2',
 };
 
 export default Colors;
