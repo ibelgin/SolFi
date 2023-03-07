@@ -13,7 +13,9 @@ interface HeaderProps {
 const Header = memo(({title, navigation}: HeaderProps) => (
   <View style={styles.container}>
     <Icon name="left" size={20} onPress={() => navigation.goBack()} />
-    <Text style={styles.header}>{title}</Text>
+    <Text style={styles.header} heading>
+      {title}
+    </Text>
   </View>
 ));
 

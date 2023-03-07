@@ -7,6 +7,9 @@ const Colors = {
   LightDarkGreen: '#568E77',
   HeaderGreen: '#0E7469',
   DodgerBlue: '#1DA1F2',
+  Gray: 'gray',
+  LightRed: '#FF8F8F',
+  LightGray: '#F6F6F6',
 };
 
 export default Colors;

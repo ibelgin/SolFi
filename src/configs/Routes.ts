@@ -4,6 +4,7 @@ const Routes = {
   Home: 'Home',
   AddSensor: 'AddSensor',
   SensorHome: 'SensorHome',
+  Settings: 'Settings',
 };
 
 export default Routes;

@@ -1,27 +1,53 @@
 import React, {memo, useState} from 'react';
-import {StyleSheet} from 'react-native';
-import Container from 'layout/Container';
+import {StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import {Colors} from 'configs';
-import Text from 'components/Text';
 import Strings from './messages.en';
 import SearchBar from 'components/SearchBar';
+import {useNavigation} from '@react-navigation/native';
+import SensorComponent from 'components/SensorComponent';
 
 interface SensorHomeProps {}
 
 const SensorHome = memo((_props: SensorHomeProps) => {
   const [search, setSearch] = useState('');
+  const navigate = useNavigation();
+
+  const DATA = [
+    {
+      id: 'KHSGF-34KJH-43HJ4-43KJH',
+      title: "Carrot's Hub",
+      active: true,
+      battery: '38',
+    },
+    {
+      id: 'FKSDJG-4334MN-34KH43-34',
+      title: 'Paddy Hub',
+      active: false,
+      battery: '3',
+    },
+    {
+      id: 'OUHI43-BJ3H4B-34KJHB-33',
+      title: 'Tomato Hub',
+      active: true,
+      battery: '100',
+    },
+  ];
 
   return (
-    <Container style={styles.container}>
-      <Text paddingTop={40} paddingHorizontal={20} heading>
-        {Strings.SEN}
-      </Text>
+    <SafeAreaView style={styles.container}>
       <SearchBar
         value={search}
         onChange={setSearch}
+        style={styles.search}
         placeholder={Strings.SER}
       />
-    </Container>
+      <FlatList
+        style={styles.flatlist}
+        data={DATA}
+        renderItem={SensorComponent}
+        keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
   );
 });
 
@@ -29,6 +55,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.White,
+  },
+  search: {
+    marginTop: 20,
+  },
+  flatlist: {
+    marginTop: 20,
   },
 });
 
