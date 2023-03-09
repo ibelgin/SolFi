@@ -4,6 +4,10 @@ const Routes = {
   Home: 'Home',
   AddSensor: 'AddSensor',
   SensorHome: 'SensorHome',
+  Settings: 'Settings',
+  Tabs: 'Tabs',
+  Predictions: 'Predictions',
+  CropStocks: 'CropStocks',
 };
 
 export default Routes;
