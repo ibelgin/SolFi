@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {memo, useEffect} from 'react';
 import {StyleSheet, View, Image} from 'react-native';
 import Container from 'layout/Container';
 import Header from 'components/Header';
@@ -9,11 +9,16 @@ import {IMAGE} from 'images';
 import ButtonIconText from 'components/ButtonIconText';
 import {Constants} from 'configs';
 import Strings from './messages.en';
+import {writeData} from 'utils/database';
 
 interface AddSensorProps {}
 
 const AddSensor = memo((_props: AddSensorProps) => {
   const navigate = useNavigation();
+
+  useEffect(() => {
+    writeData();
+  }, []);
 
   return (
     <Container>
