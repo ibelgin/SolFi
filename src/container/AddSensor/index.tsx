@@ -9,7 +9,7 @@ import {IMAGE} from 'images';
 import ButtonIconText from 'components/ButtonIconText';
 import {Constants} from 'configs';
 import Strings from './messages.en';
-import {writeData} from 'utils/database';
+// import {writeData} from 'utils/database';
 
 interface AddSensorProps {}
 
@@ -17,7 +17,7 @@ const AddSensor = memo((_props: AddSensorProps) => {
   const navigate = useNavigation();
 
   useEffect(() => {
-    writeData();
+    // writeData();
   }, []);
 
   return (
