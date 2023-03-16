@@ -25,9 +25,9 @@ function initialConfig() {
 async function checkIfSignedIn() {
   const isSignedIn = await GoogleSignin.isSignedIn();
   if (isSignedIn) {
-    getCurrentUserInfo();
+    return getCurrentUserInfo();
   } else {
-    signIn();
+    return signIn();
   }
 }
 
@@ -39,7 +39,7 @@ async function signIn() {
   try {
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    onSignIn(userInfo);
+    return userInfo;
   } catch (error: any) {
     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
       return error.message;
@@ -60,7 +60,7 @@ async function signIn() {
 async function getCurrentUserInfo() {
   try {
     const userInfo = await GoogleSignin.signInSilently();
-    onSignIn(userInfo);
+    return userInfo;
   } catch (error: any) {
     if (error.code === statusCodes.SIGN_IN_REQUIRED) {
       signIn();
@@ -69,30 +69,4 @@ async function getCurrentUserInfo() {
   }
 }
 
-/**
- * Does the Navigation to the next screens
- * @param {JSON} data - Contains JSON Values.
- */
-
-function onSignIn(data: any) {
-  //data =  {
-  //   idToken: <String>
-  //   scopes: [<Array of Scopes>],
-  //   serverAuthCode: <String>
-  //   user: {
-  //     email: <String>,
-  //     familyName: <String>,
-  //     givenName: <String>,
-  //     id: <String>,
-  //     name: <String>,
-  //     photo: <Image URI>,
-  //   },
-  // };
-
-  console.log(data.user.email);
-  console.log(data.user.photo);
-  console.log(data.user.id);
-  console.log(data.user.name);
-}
-
-export {initialConfig, signIn, onSignIn, checkIfSignedIn};
+export {initialConfig, signIn, checkIfSignedIn};

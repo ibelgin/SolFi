@@ -13,15 +13,16 @@ interface SensorComponentProps {
 
 const SensorComponent = ({item}: SensorComponentProps) => {
   const isEmpty = batteryCheck(item.battery) == 'progress-empty';
+  const isActive = !(Number(item.battery) < 2);
   return (
     <View style={styles.item}>
-      {!item.title === undefined ? (
+      {!(item.title === undefined) ? (
         <>
           <View style={Theme.flexRow}>
             <View
               style={{
                 ...styles.line,
-                backgroundColor: item.active ? Colors.Primary : Colors.LightRed,
+                backgroundColor: isActive ? Colors.Primary : Colors.LightRed,
               }}
             />
             <View>
@@ -37,7 +38,7 @@ const SensorComponent = ({item}: SensorComponentProps) => {
             <View style={Theme.flexRow}>
               <Entypo size={15} name="circular-graph" color={Colors.Primary} />
               <Text style={styles.id} description>
-                {item.active ? 'Active' : 'Not Active'}
+                {isActive ? 'Active' : 'Not Active'}
               </Text>
             </View>
             <View style={Theme.flexRowCenter}>
