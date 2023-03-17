@@ -1,15 +1,24 @@
 import {User} from './actionTypes';
 
+//userData = {
+//     email: <String>,
+//     familyName: <String>,
+//     givenName: <String>,
+//     id: <String>,
+//     name: <String>,
+//     photo: <Image URI>,
+//   };
+
 const initValue = {
-  name: '',
+  userData: {},
 };
 
 const writeData = (state = initValue, action: any) => {
   switch (action.type) {
-    case User.NAME:
+    case User.USERDATA:
       return {
         ...state,
-        name: action.name,
+        userData: action.userData,
       };
     default:
       return state;

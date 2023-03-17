@@ -6,14 +6,13 @@ import {Routes} from 'configs';
 import Login from 'container/Login';
 import AddSensor from 'container/AddSensor';
 import SensorHome from 'container/SensorHome';
-import Settings from 'container/Settings';
 import Tabs from './Tabs';
 
 const Stack = createNativeStackNavigator();
 
 const RootStack = memo(() => {
   return (
-    <Stack.Navigator initialRouteName={Routes.Tabs}>
+    <Stack.Navigator initialRouteName={Routes.Login}>
       <Stack.Screen
         name={Routes.Login}
         component={Login}

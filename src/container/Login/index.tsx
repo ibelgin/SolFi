@@ -1,23 +1,40 @@
 import React, {memo, useEffect, useRef} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Alert} from 'react-native';
 import Container from 'layout/Container';
 import ButtonIconText from 'components/ButtonIconText';
-import {Colors, Constants} from 'configs';
+import {Colors, Constants, Routes} from 'configs';
 import Strings from './messages.en';
-import {initialConfig, checkIfSignedIn, signIn} from 'utils/google-signin';
 import Text from 'components/Text';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {useNavigation} from '@react-navigation/native';
 import Lottie from 'lottie-react-native';
 import {Assets} from 'assets';
+
+import {initialConfig, checkIfSignedIn, signIn} from 'utils/google-signin';
+import {useDispatch} from 'react-redux';
+import createActions from 'redux/createActions';
+import {User} from 'redux/actionTypes';
 
 interface LoginProps {}
 
 const Login = memo((_props: LoginProps) => {
   const animationRef = useRef<Lottie>(null);
+  const navigate = useNavigation();
+  const dispatch = useDispatch();
+
+  async function checkData() {
+    try {
+      const data = await checkIfSignedIn();
+      dispatch(createActions(User.USERDATA, {userData: data.user}));
+      navigate.navigate(Routes.Tabs);
+    } catch {
+      Alert.alert(Strings.SOLFI, Strings.ERROR);
+    }
+  }
 
   useEffect(() => {
     initialConfig();
-    // checkIfSignedIn();
+    checkData();
     animationRef.current?.play(130, 350);
   }, []);
 
