@@ -35,9 +35,10 @@ const styles = StyleSheet.create({
   headerSearch: {
     ...Theme.flexRow,
     padding: 15,
+    height: 48,
   },
   textInputFocus: {
-    minHeight: 48,
+    height: 48,
     paddingHorizontal: 16,
     borderRadius: 8,
     borderWidth: 1.5,

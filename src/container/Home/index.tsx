@@ -26,14 +26,14 @@ const Home = memo((_props: HomeProps) => {
 
   const DATA = [
     {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'Add Product',
-      img: 'https://cdn.dribbble.com/users/844597/screenshots/7370239/media/41b529d7059fbce7824e56dc2e59cb73.png?compress=1&resize=1600x1200&vertical=top',
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      title: 'Add Notifications',
+      img: 'https://cdn.dribbble.com/users/1844512/screenshots/9714300/media/409cddb117b09b8471d3c49a0b6079bd.jpg?compress=1&resize=1600x1200&vertical=top',
     },
     {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Check Sensors',
-      img: 'https://cdn.dribbble.com/users/114506/screenshots/2334991/media/b3d4280179f503de478ad3a55af9c049.png?compress=1&resize=800x600&vertical=top',
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      title: 'Add Product',
+      img: 'https://cdn.dribbble.com/users/736391/screenshots/4331805/splash_screen.jpg?compress=1&resize=800x600&vertical=top',
     },
   ];
 

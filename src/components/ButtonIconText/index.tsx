@@ -24,7 +24,7 @@ interface ButtonIconTextProps {
 
 const ButtonIconText = memo(
   ({
-    backgroundColor = Colors.Primary,
+    backgroundColor = Colors.Green,
     borderColor = Colors.BorderGreen,
     title,
     style,
