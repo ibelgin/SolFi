@@ -34,7 +34,7 @@ const Login = memo((_props: LoginProps) => {
 
   useEffect(() => {
     initialConfig();
-    checkData();
+    // checkData();
     animationRef.current?.play(130, 350);
   }, []);
 
@@ -55,7 +55,7 @@ const Login = memo((_props: LoginProps) => {
         {Strings.DESC}
       </Text>
       <ButtonIconText
-        onPress={() => signIn()}
+        onPress={() => checkData()}
         icon={
           <AntDesign name={Strings.ICON_NAME} size={24} color={Colors.White} />
         }

@@ -8,6 +8,7 @@ const Routes = {
   Tabs: 'Tabs',
   Predictions: 'Predictions',
   CropStocks: 'CropStocks',
+  SensorDetails: 'SensorDetails',
 };
 
 export default Routes;

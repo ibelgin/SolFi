@@ -5,6 +5,7 @@ import Strings from './messages.en';
 import SearchBar from 'components/SearchBar';
 import {useNavigation} from '@react-navigation/native';
 import SensorComponent from 'components/SensorComponent';
+import TitleTextButton from 'components/TitleTextButton';
 
 interface SensorHomeProps {}
 
@@ -35,6 +36,7 @@ const SensorHome = memo((_props: SensorHomeProps) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <TitleTextButton title="Sensors" buttonText="Add Sensor" />
       <SearchBar
         value={search}
         onChange={setSearch}
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.White,
   },
   search: {
-    marginTop: 20,
+    marginTop: 10,
   },
   flatlist: {
     marginTop: 20,

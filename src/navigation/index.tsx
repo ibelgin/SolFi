@@ -6,6 +6,7 @@ import {Routes} from 'configs';
 import Login from 'container/Login';
 import AddSensor from 'container/AddSensor';
 import SensorHome from 'container/SensorHome';
+import SensorDetails from 'container/SensorDetails';
 import Tabs from './Tabs';
 
 const Stack = createNativeStackNavigator();
@@ -31,6 +32,11 @@ const RootStack = memo(() => {
       <Stack.Screen
         name={Routes.SensorHome}
         component={SensorHome}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={Routes.SensorDetails}
+        component={SensorDetails}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

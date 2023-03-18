@@ -6,6 +6,7 @@ const Colors = {
   Primary: '#15B8A7',
   Secondary: '#3BAEA3',
   LightGreen: '#6ED7D3',
+  Green: '#00C1AD',
   SuperLightGreen: '#E6FFFE',
   LightDarkGreen: '#568E77',
   HeaderGreen: '#0E7469',
