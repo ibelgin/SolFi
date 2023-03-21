@@ -13,7 +13,7 @@ Making with React Native , Redux , TypeScript, Firestore, Arduino ( NodeMCU ).
 <H3>🎯 &nbspCurrently progressing</H4> <br />
  
 - [ ] IoT Device
-- [ ] App Code ( Designing )
+- [x] App Code ( Designing )
 - [ ] Landing Website
 
 <H3>🧑🏼‍💻 &nbspDevelopers</H4> <br />
