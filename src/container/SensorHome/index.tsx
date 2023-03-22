@@ -6,6 +6,7 @@ import SearchBar from 'components/SearchBar';
 import {useNavigation} from '@react-navigation/native';
 import SensorComponent from 'components/SensorComponent';
 import TitleTextButton from 'components/TitleTextButton';
+import {Routes} from 'configs';
 
 interface SensorHomeProps {}
 
@@ -36,7 +37,11 @@ const SensorHome = memo((_props: SensorHomeProps) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TitleTextButton title="Sensors" buttonText="Add Sensor" />
+      <TitleTextButton
+        title="Sensors"
+        buttonText="Add Sensor"
+        onPress={() => navigate.navigate(Routes.AddSensor)}
+      />
       <SearchBar
         value={search}
         onChange={setSearch}

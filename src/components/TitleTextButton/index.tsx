@@ -8,24 +8,27 @@ import Text from 'components/Text';
 interface TitleTextButtonProps {
   title?: string;
   buttonText?: string;
+  onPress: () => void;
 }
 
-const TitleTextButton = memo(({title, buttonText}: TitleTextButtonProps) => (
-  <>
-    <View style={styles.container}>
-      <View style={styles.title_view}>
-        <Text heading numberOfLines={1}>
-          {title}
-        </Text>
+const TitleTextButton = memo(
+  ({title, buttonText, onPress}: TitleTextButtonProps) => (
+    <>
+      <View style={styles.container}>
+        <View style={styles.title_view}>
+          <Text heading numberOfLines={1}>
+            {title}
+          </Text>
+        </View>
+        <TouchableOpacity style={styles.button_style} onPress={onPress}>
+          <Text description numberOfLines={1}>
+            {buttonText}
+          </Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.button_style}>
-        <Text description numberOfLines={1}>
-          {buttonText}
-        </Text>
-      </TouchableOpacity>
-    </View>
-  </>
-));
+    </>
+  ),
+);
 
 export default TitleTextButton;
 
