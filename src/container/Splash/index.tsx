@@ -8,20 +8,18 @@ import {useNavigation} from '@react-navigation/native';
 import {Routes} from 'configs';
 import {initialConfig, signInWithGoogle} from 'utils/google-signin';
 import {useDispatch} from 'react-redux';
-import createActions from 'redux/createActions';
-import {User} from 'redux/actionTypes';
+import {setUser} from 'redux/userSlice';
 
 interface SplashProps {}
 
 const Splash = memo((_props: SplashProps) => {
-  const navigate = useNavigation();
   const dispatch = useDispatch();
+  const navigate = useNavigation();
 
   async function checkSignIn() {
     try {
       const data = await signInWithGoogle();
-      console.log(data);
-      dispatch(createActions(User.USERDATA, {userData: data.user}));
+      dispatch(setUser(data.user));
       navigate.navigate(Routes.Tabs);
     } catch (err) {
       Alert.alert('SolFi', 'Some Error occurred');

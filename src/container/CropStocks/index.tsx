@@ -1,5 +1,6 @@
 import React, {memo} from 'react';
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, FlatList} from 'react-native';
+import StorageComponent from 'components/StorageComponent';
 import Container from 'layout/Container';
 import SearchBar from 'components/SearchBar';
 import TitleTextButton from 'components/TitleTextButton';
@@ -11,6 +12,15 @@ import {IMAGE} from 'images';
 interface CropStocksProps {}
 
 const CropStocks = memo((_props: CropStocksProps) => {
+  const DATA = [
+    {
+      id: 'KHSGF-34KJH-43HJ4-43KJH',
+      title: "Carrot's Hub",
+      active: true,
+      battery: '38',
+    },
+  ];
+
   return (
     <Container>
       <TitleTextButton title="Storage" buttonText="Add Stocks" />
@@ -22,7 +32,11 @@ const CropStocks = memo((_props: CropStocksProps) => {
           <Text heading>30</Text>
         </View>
       </View>
-      <View style={styles.itembox}></View>
+      <FlatList
+        data={DATA}
+        renderItem={StorageComponent}
+        keyExtractor={item => item.id}
+      />
     </Container>
   );
 });
@@ -41,7 +55,7 @@ const styles = StyleSheet.create({
   itembox: {
     height: 100,
     padding: 10,
-    margin: 20,
+    marginHorizontal: 20,
     backgroundColor: Colors.LightGray,
   },
   itemimage: {

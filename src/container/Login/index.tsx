@@ -9,23 +9,22 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import Lottie from 'lottie-react-native';
 import {Assets} from 'assets';
+import {useDispatch} from 'react-redux';
+import {setUser} from 'redux/userSlice';
 
 import {signInWithGoogle} from 'utils/google-signin';
-import {useDispatch} from 'react-redux';
-import createActions from 'redux/createActions';
-import {User} from 'redux/actionTypes';
 
 interface LoginProps {}
 
 const Login = memo((_props: LoginProps) => {
   const animationRef = useRef<Lottie>(null);
-  const navigate = useNavigation();
   const dispatch = useDispatch();
+  const navigate = useNavigation();
 
   async function signIn() {
     try {
       const data = await signInWithGoogle();
-      dispatch(createActions(User.USERDATA, {userData: data.user}));
+      dispatch(setUser(data.user));
       navigate.navigate(Routes.Tabs);
     } catch {
       Alert.alert(Strings.SOLFI, Strings.ERROR);
