@@ -10,7 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 import Lottie from 'lottie-react-native';
 import {Assets} from 'assets';
 
-import {initialConfig, checkIfSignedIn, signIn} from 'utils/google-signin';
+import {signInWithGoogle} from 'utils/google-signin';
 import {useDispatch} from 'react-redux';
 import createActions from 'redux/createActions';
 import {User} from 'redux/actionTypes';
@@ -22,9 +22,9 @@ const Login = memo((_props: LoginProps) => {
   const navigate = useNavigation();
   const dispatch = useDispatch();
 
-  async function checkData() {
+  async function signIn() {
     try {
-      const data = await checkIfSignedIn();
+      const data = await signInWithGoogle();
       dispatch(createActions(User.USERDATA, {userData: data.user}));
       navigate.navigate(Routes.Tabs);
     } catch {
@@ -33,8 +33,6 @@ const Login = memo((_props: LoginProps) => {
   }
 
   useEffect(() => {
-    initialConfig();
-    // checkData();
     animationRef.current?.play(130, 350);
   }, []);
 
@@ -55,7 +53,7 @@ const Login = memo((_props: LoginProps) => {
         {Strings.DESC}
       </Text>
       <ButtonIconText
-        onPress={() => checkData()}
+        onPress={() => signIn()}
         icon={
           <AntDesign name={Strings.ICON_NAME} size={24} color={Colors.White} />
         }

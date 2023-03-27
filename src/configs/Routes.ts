@@ -1,5 +1,6 @@
 const Routes = {
   // Home Stack
+  Splash: 'Splash',
   Login: 'Login',
   Home: 'Home',
   AddSensor: 'AddSensor',
