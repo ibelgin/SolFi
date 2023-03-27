@@ -16,7 +16,7 @@ interface HomeProps {}
 
 const Home = memo((_props: HomeProps) => {
   const navigate = useNavigation();
-  const userData = useSelector((state: any) => state.writeData);
+  const userData = useSelector((state: any) => state.user);
 
   const [sensorData, setSensorData] = useState({
     id: 'KHSGF-34KJH-43HJ4-43KJH',
