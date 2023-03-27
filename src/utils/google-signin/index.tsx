@@ -17,56 +17,26 @@ function initialConfig() {
   });
 }
 
-/**
- * Check if the User has already Signed in using SignIn() Function
- * Calls `getCurrentUserInfo()` and `SignIn()` functions
- */
-
-async function checkIfSignedIn() {
-  const isSignedIn = await GoogleSignin.isSignedIn();
-  if (isSignedIn) {
-    return getCurrentUserInfo();
-  } else {
-    return signIn();
-  }
-}
-
-/**
- * Sign In as a New User Function
- */
-
-async function signIn() {
+async function signInWithGoogle(): Promise<
+  GoogleSignin.GoogleSigninUser | any
+> {
   try {
     await GoogleSignin.hasPlayServices();
-    const userInfo = await GoogleSignin.signIn();
-    return userInfo;
-  } catch (error: any) {
-    if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-      return error.message;
-    } else if (error.code === statusCodes.IN_PROGRESS) {
-      return error.message;
-    } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-      return error.message;
+    const isSignedIn = await GoogleSignin.isSignedIn();
+    if (isSignedIn) {
+      const userInfo = await GoogleSignin.signInSilently();
+      return userInfo;
     } else {
-      return error.message;
+      const userInfo = await GoogleSignin.signIn();
+      return userInfo;
     }
-  }
-}
-
-/**
- * Gets the data anonymously from the user and pass it to `onSignIn()` function
- */
-
-async function getCurrentUserInfo() {
-  try {
-    const userInfo = await GoogleSignin.signInSilently();
-    return userInfo;
   } catch (error: any) {
     if (error.code === statusCodes.SIGN_IN_REQUIRED) {
-      signIn();
+      return signInWithGoogle();
     } else {
+      throw new Error("Couldn't Sign In ");
     }
   }
 }
 
-export {initialConfig, signIn, checkIfSignedIn};
+export {initialConfig, signInWithGoogle};
