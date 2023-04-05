@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {StyleSheet, View, TextInput, ViewProps} from 'react-native';
+import {StyleSheet, View, TextInput, TextInputProps} from 'react-native';
 
 import {Colors} from 'configs';
 
@@ -7,7 +7,7 @@ import Text from 'components/Text';
 interface TitleInputProps {
   title: string;
   placeholder: string;
-  style?: ViewProps;
+  style?: TextInputProps;
 }
 
 const TitleInput = memo(({title, placeholder, style}: TitleInputProps) => (

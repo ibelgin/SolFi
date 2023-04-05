@@ -10,6 +10,7 @@ const Routes = {
   Predictions: 'Predictions',
   CropStocks: 'CropStocks',
   SensorDetails: 'SensorDetails',
+  AddStock: 'AddStock',
 };
 
 export default Routes;
