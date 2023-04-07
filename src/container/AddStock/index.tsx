@@ -1,4 +1,4 @@
-import React, {memo, useEffect} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import {StyleSheet, View, Image} from 'react-native';
 import Container from 'layout/Container';
 import Header from 'components/Header';
@@ -8,16 +8,35 @@ import TitleInput from 'components/TitleInput';
 import {IMAGE} from 'images';
 import ButtonIconText from 'components/ButtonIconText';
 import {Constants} from 'configs';
+import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {setStock} from 'redux/stockSlice';
+
 // import {writeData} from 'utils/database';
 
 interface AddStockProps {}
 
 const AddStock = memo((_props: AddStockProps) => {
   const navigate = useNavigation();
+  const dispatch = useDispatch();
+
+  const selector = useSelector((state: any) => state.stock);
+  const userData = useSelector((state: any) => state.user);
+
+  const [stockName, setStockName] = useState('');
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     // writeData();
   }, []);
+
+  const onPress = () => {
+    console.log(stockName, quantity);
+    let temp = [...selector, {title: stockName, quantity: quantity}];
+    temp.push();
+    console.log(temp);
+    dispatch(setStock(temp));
+  };
 
   return (
     <Container>
@@ -31,13 +50,21 @@ const AddStock = memo((_props: AddStockProps) => {
         title={'Stock Name'}
         placeholder={'Enter the Name of the Stock'}
         style={styles.sensorinput}
+        value={stockName}
+        onChangeText={setStockName}
       />
       <TitleInput
         title={'Quantity of the Stock'}
         placeholder={'Enter the Quantity of the Stock'}
         style={styles.sensorinput}
+        keyboardType={'numeric'}
+        value={quantity}
+        onChangeText={setQuantity}
       />
-      <ButtonIconText title={'Add Stock to Inventory'} />
+      <ButtonIconText
+        title={'Add Stock to Inventory'}
+        onPress={() => onPress()}
+      />
     </Container>
   );
 });

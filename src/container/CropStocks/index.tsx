@@ -4,38 +4,33 @@ import StorageComponent from 'components/StorageComponent';
 import Container from 'layout/Container';
 import SearchBar from 'components/SearchBar';
 import TitleTextButton from 'components/TitleTextButton';
+import {useNavigation} from '@react-navigation/native';
 import {Colors} from 'configs';
 import Text from 'components/Text';
 import Theme from 'style/Theme';
 import {IMAGE} from 'images';
+import {Routes} from 'configs';
+import {useSelector} from 'react-redux';
 
 interface CropStocksProps {}
 
 const CropStocks = memo((_props: CropStocksProps) => {
-  const DATA = [
-    {
-      image:
-        'https://cdn.dribbble.com/users/115601/screenshots/921181/media/53c4041fea260324cb63f343cf3bc4eb.png?compress=1&resize=400x300&vertical=top',
-      title: 'Maize',
-      quantity: '120 Kg',
-    },
-    {
-      image:
-        'https://cdn.dribbble.com/userupload/4065779/file/original-5f15612da46cd196b76c6419b02c540c.png?compress=1&resize=1504x1128',
-      title: "Watermelon's",
-      quantity: '40 Kg',
-    },
-  ];
+  const navigate = useNavigation();
+  const DATA = useSelector((state: any) => state.stock);
 
   return (
     <Container>
-      <TitleTextButton title="Storage" buttonText="Add Stocks" />
+      <TitleTextButton
+        title="Storage"
+        buttonText="Add Stocks"
+        onPress={() => navigate.navigate(Routes.AddStock)}
+      />
       <SearchBar style={styles.search} placeholder="Search Storage" />
       <View style={styles.overview}>
         <Image source={IMAGE.box} style={styles.itemimage} />
         <View style={styles.itemtext}>
           <Text description>Total Products</Text>
-          <Text heading>30</Text>
+          <Text heading>{DATA.length}</Text>
         </View>
       </View>
       <FlatList

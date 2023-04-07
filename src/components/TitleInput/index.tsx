@@ -1,5 +1,11 @@
 import React, {memo} from 'react';
-import {StyleSheet, View, TextInput, TextInputProps} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  TextInputProps,
+  ViewProps,
+} from 'react-native';
 
 import {Colors} from 'configs';
 
@@ -7,21 +13,30 @@ import Text from 'components/Text';
 interface TitleInputProps {
   title: string;
   placeholder: string;
-  style?: TextInputProps;
+  style?: ViewProps;
+  props?: TitleInputProps;
+  onChangeText?: (text: string) => void;
 }
 
-const TitleInput = memo(({title, placeholder, style}: TitleInputProps) => (
-  <View
-    style={[
-      styles.container,
-      {
-        ...style,
-      },
-    ]}>
-    <Text style={styles.title}>{title}</Text>
-    <TextInput style={styles.textinput} placeholder={placeholder} />
-  </View>
-));
+const TitleInput = memo(
+  ({title, placeholder, style, props, onChangeText}: TitleInputProps) => (
+    <View
+      style={[
+        styles.container,
+        {
+          ...style,
+        },
+      ]}>
+      <Text style={styles.title}>{title}</Text>
+      <TextInput
+        style={styles.textinput}
+        placeholder={placeholder}
+        onChangeText={onChangeText}
+        {...props}
+      />
+    </View>
+  ),
+);
 
 export default TitleInput;
 
