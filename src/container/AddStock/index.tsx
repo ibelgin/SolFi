@@ -31,10 +31,8 @@ const AddStock = memo((_props: AddStockProps) => {
   }, []);
 
   const onPress = () => {
-    console.log(stockName, quantity);
     let temp = [...selector, {title: stockName, quantity: quantity}];
     temp.push();
-    console.log(temp);
     dispatch(setStock(temp));
   };
 
