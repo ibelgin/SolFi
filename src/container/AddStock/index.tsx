@@ -11,6 +11,7 @@ import {Constants} from 'configs';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {setStock} from 'redux/stockSlice';
+import firestore from '@react-native-firebase/firestore';
 
 // import {writeData} from 'utils/database';
 
@@ -25,15 +26,56 @@ const AddStock = memo((_props: AddStockProps) => {
 
   const [stockName, setStockName] = useState('');
   const [quantity, setQuantity] = useState(0);
+  const img =
+    'https://user-images.githubusercontent.com/61349423/230973613-7b25fedd-7318-411b-a74d-32b38ec5827b.png';
 
   useEffect(() => {
-    // writeData();
+    getData();
   }, []);
 
+  const getData = async () => {
+    firestore()
+      .collection('Users')
+      .doc(userData.id)
+      .onSnapshot(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          const temp = documentSnapshot.data();
+          dispatch(setStock(temp.stocks));
+        } else {
+          firestore()
+            .collection('Users')
+            .doc(userData.id)
+            .set({
+              stocks: [],
+            })
+            .then(() => {
+              console.log('User added!');
+              dispatch(setStock([]));
+            });
+        }
+      });
+  };
+
   const onPress = () => {
-    let temp = [...selector, {title: stockName, quantity: quantity}];
+    let temp = [
+      ...selector,
+      {
+        title: stockName,
+        quantity: quantity,
+        image: img,
+      },
+    ];
     temp.push();
-    dispatch(setStock(temp));
+    firestore()
+      .collection('Users')
+      .doc(userData.id)
+      .set({
+        stocks: temp,
+      })
+      .then(() => {
+        console.log('Data Updated');
+        dispatch(setStock(temp));
+      });
   };
 
   return (
