@@ -4,14 +4,14 @@ import {Image, Pressable, StyleSheet, View} from 'react-native';
 import Theme from 'style/Theme';
 import Text from 'components/Text';
 import {Colors} from 'configs';
-import {IMAGE} from 'images';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 interface StorageComponentProps {
   item?: any;
+  onPress?: () => void;
 }
 
-const StorageComponent = ({item}: StorageComponentProps) => {
+const StorageComponent = ({item, onPress}: StorageComponentProps) => {
   return (
     <>
       {!(item.title === undefined) ? (
@@ -25,7 +25,7 @@ const StorageComponent = ({item}: StorageComponentProps) => {
               </Text>
             </View>
           </View>
-          <Pressable style={styles.del}>
+          <Pressable style={styles.del} onPress={onPress}>
             <MaterialIcons name="delete" size={20} color={Colors.LightRed} />
           </Pressable>
         </View>
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   overview: {
-    
     height: 80,
     margin: 20,
     marginVertical: 10,

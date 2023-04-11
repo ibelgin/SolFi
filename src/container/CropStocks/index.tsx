@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {memo, useEffect} from 'react';
 import {StyleSheet, View, Image, FlatList} from 'react-native';
 import StorageComponent from 'components/StorageComponent';
 import Container from 'layout/Container';
@@ -11,12 +11,50 @@ import Theme from 'style/Theme';
 import {IMAGE} from 'images';
 import {Routes} from 'configs';
 import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {setStock} from 'redux/stockSlice';
+
+import firestore from '@react-native-firebase/firestore';
 
 interface CropStocksProps {}
 
 const CropStocks = memo((_props: CropStocksProps) => {
   const navigate = useNavigation();
+  const dispatch = useDispatch();
+
   const DATA = useSelector((state: any) => state.stock);
+  const userData = useSelector((state: any) => state.user);
+
+  const onDelete = (title: String) => {
+    const updatedArray = DATA.filter(item => item.title !== title);
+    firestore()
+      .collection('Users')
+      .doc(userData.id)
+      .set({
+        stocks: updatedArray,
+      })
+      .then(() => {
+        dispatch(setStock(updatedArray));
+      });
+  };
+
+  const getData = async () => {
+    firestore()
+      .collection('Users')
+      .doc(userData.id)
+      .onSnapshot(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          const temp = documentSnapshot.data();
+          dispatch(setStock(temp.stocks));
+        } else {
+          dispatch(setStock([{}]));
+        }
+      });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <Container>
@@ -35,8 +73,13 @@ const CropStocks = memo((_props: CropStocksProps) => {
       </View>
       <FlatList
         data={DATA}
-        renderItem={StorageComponent}
-        keyExtractor={item => item.id}
+        renderItem={item => (
+          <StorageComponent
+            item={item.item}
+            onPress={() => onDelete(item.item.title)}
+          />
+        )}
+        keyExtractor={(item, index) => index.toString()}
       />
     </Container>
   );

@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator();
 const RootStack = memo(() => {
   return (
     <Stack.Navigator
-      initialRouteName={Routes.Tabs}
+      initialRouteName={Routes.Splash}
       screenOptions={{headerShown: false}}>
       <Stack.Screen name={Routes.Splash} component={Splash} />
       <Stack.Screen name={Routes.Login} component={Login} />
