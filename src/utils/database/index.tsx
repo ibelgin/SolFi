@@ -13,15 +13,15 @@ function writeData() {
       console.log('User added!', data);
     });
 
-  // firestore()
-  //   .collection('Sensors')
-  //   .where('id', 'in', ['103243', '103244'])
-  //   .get()
-  //   .then(querySnapshot => {
-  //     querySnapshot.forEach(snapshot => {
-  //       console.log(snapshot);
-  //     });
-  //   });
+  firestore()
+    .collection('Sensors')
+    .where('id', 'in', ['103243', '103244'])
+    .get()
+    .then(querySnapshot => {
+      querySnapshot.forEach(snapshot => {
+        console.log(snapshot);
+      });
+    });
 }
 
 export {writeData};

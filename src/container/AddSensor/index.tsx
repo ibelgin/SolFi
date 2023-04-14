@@ -1,4 +1,4 @@
-import React, {memo, useEffect} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import {StyleSheet, View, Image} from 'react-native';
 import Container from 'layout/Container';
 import Header from 'components/Header';
@@ -9,6 +9,8 @@ import {IMAGE} from 'images';
 import ButtonIconText from 'components/ButtonIconText';
 import {Constants} from 'configs';
 import Strings from './messages.en';
+import firestore from '@react-native-firebase/firestore';
+
 // import {writeData} from 'utils/database';
 
 interface AddSensorProps {}
@@ -16,9 +18,16 @@ interface AddSensorProps {}
 const AddSensor = memo((_props: AddSensorProps) => {
   const navigate = useNavigation();
 
+  const [sensorName, setSensorName] = useState('');
+  const [sensorSerial, setSensorSerial] = useState('');
+
   useEffect(() => {
     // writeData();
   }, []);
+
+  const onSetSensor = () => {
+    
+  };
 
   return (
     <Container>
@@ -33,11 +42,20 @@ const AddSensor = memo((_props: AddSensorProps) => {
         resizeMode="contain"
       />
       <TitleInput
+        title={Strings.NAME}
+        placeholder={Strings.ID}
+        style={styles.sensorinput}
+        value={sensorName}
+        onChangeText={setSensorName}
+      />
+      <TitleInput
         title={Strings.SERIAL}
         placeholder={Strings.ID}
         style={styles.sensorinput}
+        value={sensorSerial}
+        onChangeText={setSensorSerial}
       />
-      <ButtonIconText title={Strings.TITLE} />
+      <ButtonIconText title={Strings.TITLE} onPress={() => onSetSensor()} />
     </Container>
   );
 });
@@ -50,7 +68,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   image: {
-    height: 400,
+    height: 350,
     width: Constants.width,
   },
   sensorinput: {
