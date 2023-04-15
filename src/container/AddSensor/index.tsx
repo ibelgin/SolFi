@@ -25,9 +25,7 @@ const AddSensor = memo((_props: AddSensorProps) => {
     // writeData();
   }, []);
 
-  const onSetSensor = () => {
-    
-  };
+  const onSetSensor = () => {};
 
   return (
     <Container>

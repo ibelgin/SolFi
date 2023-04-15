@@ -20,8 +20,16 @@ const Settings = memo((_props: SettingsProps) => {
         style={styles.image}
         resizeMode="contain"
       />
-      <SettingCard headingTitle="ABOUT US" heading />
+      <SettingCard headingTitle="USER" heading />
+      <SettingCard icon="user" title="Profile" route={Routes.AddSensor} />
       <SettingCard icon="hearto" title="Liked" route={Routes.AddSensor} />
+      <SettingCard headingTitle="ABOUT US" heading />
+      <SettingCard icon="team" title="About Us" route={Routes.AddSensor} />
+      <SettingCard
+        icon="inbox"
+        title="Terms and Conditions"
+        route={Routes.AddSensor}
+      />
       <View style={Theme.center}>
         <Text style={styles.heading}>SolFi @ 2022</Text>
       </View>
