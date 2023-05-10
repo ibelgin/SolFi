@@ -19,4 +19,4 @@ Making with React Native , Redux , TypeScript, Firestore, Arduino ( NodeMCU ).
 
 <H3>🧑🏼‍💻 &nbspDevelopers</H4> <br />
 
-* **Belgin Jarosh** - *Project Lead - App and IoT Developer*
+* **Belgin Jarosh**
